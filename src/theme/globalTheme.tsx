@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     globalMargin: {
-        marginHorizontal: 20,
+        marginHorizontal: 15,
     },
     title: {
         fontSize: 30,
@@ -16,3 +16,9 @@ export const styles = StyleSheet.create({
         marginTop: 10
     },
 });
+
+export const colors = {
+    primaryColor: '#121317',
+    secondaryColor: '#1a1c23',
+    colorIcon: '#CABFFD'
+}

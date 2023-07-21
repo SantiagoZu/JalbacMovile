@@ -4,8 +4,8 @@ export const data = [
         documento: "1033257640",
         nombre: "Santiago",
         apellido: "Muñoz",
-        telefono: "301220636",
-        estado: false
+        telefono: "3012206366",
+        estado: true
     },
     {
         idCliente: 2,
