@@ -5,16 +5,23 @@ import { Cliente, ClientesResponse } from "../../interfaces/interfaces"
 export const useClientes = () => {
 
     const [clientes, setClientes] = useState<Cliente[]>()
+    const [isLoading, setIsLoading] = useState(true)
 
     const getClientes = async () => {
         try {
             const response = await jalbacApi.get<ClientesResponse>('/Cliente');
             setClientes(response.data.resultado);
-            console.log(response);
+            setIsLoading(false);
         } catch (error) {
             console.log('Error al obtener clientes:', error);
         }
     };
+
+    const refreshClientes = async () => {
+        setIsLoading(true);
+        await getClientes();
+    };
+
 
     useEffect(() => {
         getClientes();
@@ -22,6 +29,8 @@ export const useClientes = () => {
 
 
     return {
-        clientes
+        clientes,
+        isLoading,
+        refreshClientes
     }
 }

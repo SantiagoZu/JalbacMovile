@@ -1,23 +1,26 @@
-import React, { useState } from 'react';
-import { FlatList, RefreshControl, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react'
+import { ActivityIndicator, Appearance, FlatList, RefreshControl, Text, View } from 'react-native';
 import { colors, styles } from '../theme/globalTheme';
+import { PedidoItem } from '../components/PedidoItem';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { ClientItem } from '../components/ClientItem';
-import { useClientes } from '../hooks/useClientes';
-import { ActivityIndicator } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { useNavigation } from '@react-navigation/native';
+import { usePedidos } from '../hooks/usePedidos';
+import { lightTheme } from '../theme/lightTheme';
 import { GoBack } from '../components/GoBack';
 
-export const ClientesScreen = () => {
+export const PedidosEnProduccion = () => {
+    const [theme, setTheme] = useState(Appearance.getColorScheme());
+    Appearance.addChangeListener((scheme) => {
+        setTheme(scheme.colorScheme);
+    });
     const [refreshing, setRefreshing] = useState(false)
-    const { clientes, isLoading, refreshClientes } = useClientes();
-    const navigation = useNavigation();
+    const { top } = useSafeAreaInsets();
+    const { isLoading, pedidos, refreshPedidos } = usePedidos();
+    const pedidosEnProduccion = pedidos?.filter(pedido => pedido.idEstadoNavigation.nombre === 'En produccion');
 
     const onRefresh = async () => {
         setRefreshing(true);
         try {
-            await refreshClientes();
+            await refreshPedidos();
         } catch (error) {
             console.log('Error al actualizar datos:', error);
         } finally {
@@ -25,18 +28,22 @@ export const ClientesScreen = () => {
         }
     }
 
-    const { top } = useSafeAreaInsets()
     return (
         <View style={{ ...styles.globalMargin, marginTop: top + 25, flex: 1 }}>
+            <View style={{flexDirection: 'row'}}>
+                <Text style={{ ...theme === 'light' ? lightTheme.title : styles.title, fontSize: 25, marginBottom: 5, }}>Pedidos en producción</Text>
+            </View>
+
             {
                 isLoading
                     ? <ActivityIndicator size={50} color={colors.colorIcon} />
                     :
                     <>
+
                         <FlatList
-                            data={clientes}
-                            renderItem={({ item }) => <ClientItem cliente={item} />}
-                            keyExtractor={item => item.idCliente.toString()}
+                            data={pedidosEnProduccion}
+                            renderItem={({ item }) => <PedidoItem pedido={item} />}
+                            keyExtractor={item => item.idPedido.toString()}
                             showsVerticalScrollIndicator={false}
                             refreshControl={
                                 <RefreshControl
@@ -48,10 +55,8 @@ export const ClientesScreen = () => {
                             }
                         />
                     </>
+
             }
-
         </View>
-
-
     )
 }

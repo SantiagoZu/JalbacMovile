@@ -23,7 +23,7 @@ export const lightTheme = StyleSheet.create({
             width: 0,
             height: 1,
         },
-        shadowOpacity: 0.22,
+        shadowOpacity: 0.12,
         shadowRadius: 2.22,
 
         elevation: 3,
@@ -39,6 +39,77 @@ export const lightTheme = StyleSheet.create({
         color: '#24262D',
         opacity: 0.7,
         fontWeight: 'bold'
+    },
+    containerHome: {
+        height: 150,
+        width: 150,
+        borderRadius: 15,
+        backgroundColor: '#FFFFFF',
+        marginTop: 10,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+
+        elevation: 3,
+    },
+    card: {
+        // height: 300,
+        width: 340,
+        backgroundColor: '#FFFFFF',
+        borderRadius: 15,
+        padding: 15,
+        marginBottom: 5,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.1,
+        shadowRadius: 1.22,
+
+        elevation: 3,
+    },
+    empleadoCard: {
+        width: 340,
+        backgroundColor: '#FFFFFF',
+        borderRadius: 15,
+        padding: 15,
+        marginBottom: 5,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+
+        elevation: 3,
+    },
+    detalleCard: {
+        width: 340,
+        backgroundColor: '#FFFFFF',
+        borderRadius: 15,
+        padding: 15,
+        marginBottom: 30,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+
+        elevation: 3,
+    },
+    titleDetalleItem: {
+        fontSize: 19,
+        color: '#24262D',
+        fontWeight: 'bold',
+        marginBottom: 4,
     },
 });
 
