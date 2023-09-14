@@ -36,15 +36,15 @@ export const TopTabs = () => {
                 },
             
                 tabBarActiveTintColor: colors.colorIcon,
-                tabBarIcon: ({ color }) => {
+                tabBarIcon: ({ color, focused }) => {
                     
                     let iconName: string = '';
                     switch (route.name) {
                         case 'PedidosEnProduccion':
-                            iconName = 'hammer-outline'
+                            iconName = focused ? 'hammer' : 'hammer-outline'
                             break;
                         case 'PedidosEntregados':
-                            iconName = 'checkbox-outline'
+                            iconName = focused ? 'checkmark-done-circle' : 'checkmark-done-circle-outline'
                             break;
                     }
                     return <Icon name={iconName} size={35} color={color} style={{marginRight: -10, marginBottom: -12}} />

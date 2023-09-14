@@ -77,7 +77,7 @@ export const PedidoItem = ({ pedido }: Props) => {
                 </View>
 
 
-                <View style={{ height: 20, width: 20, position: 'absolute', right: 0, backgroundColor: pedido.idEstadoNavigation.nombre == 'Entregado' ? 'green' : '', borderRadius: 100, marginRight: 8, marginTop: 10 }}>
+                <View style={{ height: 15, width: 15, position: 'absolute', right: 0,  borderRadius: 100, marginRight: 8, bottom: 15, backgroundColor: pedido.isActivo  ? 'green' : 'red' }}>
                 </View>
 
             </View>

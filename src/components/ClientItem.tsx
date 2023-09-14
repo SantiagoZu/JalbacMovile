@@ -60,7 +60,7 @@ export const ClientItem = ({ cliente }: Props) => {
             </View>
 
 
-            <View style={{ height: 20, width: 20, position: 'absolute', right: 0,  backgroundColor: cliente.estado ? 'green' : 'red', borderRadius: 100, marginRight: 15, marginTop: 10 }}>
+            <View style={{ height: 15, width: 15, position: 'absolute', right: 0,  backgroundColor: cliente.estado ? 'green' : 'red', borderRadius: 100, marginRight: 15, marginTop: 10 }}>
                 </View>
 
         </View>

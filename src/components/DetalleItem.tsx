@@ -16,9 +16,14 @@ export const DetalleItem = ({ detalle }: Props) => {
     return (
         <View style={{ alignItems: 'center' }}>
             <View style={{ ...theme === 'light' ? lightTheme.card : styles.card, justifyContent: 'center', }}>
-                <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-                    <Text style={{ ...theme === 'light' ? lightTheme.titleDetalleItem : styles.title, fontSize: 26, opacity: 1 }}>Nombre - {detalle.nombreAnillido}</Text>
-                </View>
+                {
+                    detalle.nombreAnillido ? (
+                        <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                            <Text style={{ ...theme === 'light' ? lightTheme.titleDetalleItem : styles.title, fontSize: 26, opacity: 1 }}>Nombre - {detalle.nombreAnillido}</Text>
+                        </View>
+                    ) : null
+                }
+
                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                     <View style={{ ...styles.column, alignItems: 'center' }}>
                         <Text style={theme === 'light' ? lightTheme.titleDetalleItem : styles.title}>Peso(g)</Text>
@@ -40,10 +45,17 @@ export const DetalleItem = ({ detalle }: Props) => {
                         <View style={styles.containerValue}>
                             <Text style={theme === 'light' ? lightTheme.titleDetalleItem : styles.title}>{detalle.tamanoAnillo}</Text>
                         </View>
-                        <Text style={theme === 'light' ? lightTheme.titleDetalleItem : styles.title}>Piedra</Text>
+                        {
+                            detalle.tamanoPiedra ? (
+                                <>
+                                <Text style={theme === 'light' ? lightTheme.titleDetalleItem : styles.title}>Piedra(mm)</Text>
                         <View style={styles.containerValue}>
-                            <Text style={theme === 'light' ? lightTheme.titleDetalleItem : styles.title}>{detalle.tamanoPiedra}mm</Text>
+                            <Text style={theme === 'light' ? lightTheme.titleDetalleItem : styles.title}>{detalle.tamanoPiedra}</Text>
                         </View>
+                                </>
+                            ) : null
+                        }
+                        
                         <Text style={theme === 'light' ? lightTheme.titleDetalleItem : styles.title}>Cantidad</Text>
                         <View style={styles.containerValue}>
                             <Text style={theme === 'light' ? lightTheme.titleDetalleItem : styles.title}>{detalle.cantidad}</Text>

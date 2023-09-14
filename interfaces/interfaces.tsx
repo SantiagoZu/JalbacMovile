@@ -33,6 +33,7 @@ export interface Pedido {
     idEstadoNavigation:  IDEstadoNavigation;
     fechaPedido:         string;
     fechaEntrega:        string;
+    isActivo:            boolean;
 }
 
 export interface IDClienteNavigation {

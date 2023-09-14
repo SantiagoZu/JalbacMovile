@@ -5,7 +5,6 @@ import { PedidoItem } from '../components/PedidoItem';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { usePedidos } from '../hooks/usePedidos';
 import { lightTheme } from '../theme/lightTheme';
-import { GoBack } from '../components/GoBack';
 
 export const PedidosEnProduccion = () => {
     const [theme, setTheme] = useState(Appearance.getColorScheme());
@@ -15,7 +14,7 @@ export const PedidosEnProduccion = () => {
     const [refreshing, setRefreshing] = useState(false)
     const { top } = useSafeAreaInsets();
     const { isLoading, pedidos, refreshPedidos } = usePedidos();
-    const pedidosEnProduccion = pedidos?.filter(pedido => pedido.idEstadoNavigation.nombre === 'En produccion');
+    const pedidosEnProduccion = pedidos?.filter(pedido => pedido.idEstadoNavigation.nombre === 'En producción');
 
     const onRefresh = async () => {
         setRefreshing(true);

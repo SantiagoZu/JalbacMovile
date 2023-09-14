@@ -28,7 +28,6 @@ export const HomeButton = ({ title, icon, navegacion }: Props) => {
                     name={icon}
                     size={60}
                     color={colors.colorIcon}
-
                 />
                 <Text style={theme == 'light' ? lightTheme.subTitle : styles.subTitle}>{title}</Text>
             </TouchableOpacity>
